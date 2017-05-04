@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',array(
+    'as' => 'ViewIndexPage',
+    'uses' => 'DeviceController@index'
+));
+
+Route::post('buffer',array(
+    'as' => 'SendGestureDetails',
+    'uses' => 'DeviceController@inputData'
+));
