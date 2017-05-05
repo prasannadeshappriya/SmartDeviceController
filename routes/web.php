@@ -20,3 +20,8 @@ Route::post('buffer',array(
     'as' => 'SendGestureDetails',
     'uses' => 'DeviceController@inputData'
 ));
+
+Route::post('connect',array(
+    'as' => 'ConnectDevice',
+    'uses' => 'DeviceController@connect'
+));
