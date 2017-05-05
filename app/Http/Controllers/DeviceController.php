@@ -24,6 +24,14 @@ class DeviceController extends Controller
         return $response->setData(['serial'=>$serial,'status'=>$request['status']]);
     }
 
+    public function disconnect(Request $request){
+        //Delete the current device serial
+        $sql = "DELETE FROM device WHERE 1";
+        DB::delete($sql);
+        $response = new JsonResponse();
+        return $response->setData(['response'=>$request['status']]);
+    }
+
     public function inputData(Request $request){
         $response = new JsonResponse();
         if(!isset($request['status'])){

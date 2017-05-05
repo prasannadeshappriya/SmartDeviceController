@@ -25,3 +25,8 @@ Route::post('connect',array(
     'as' => 'ConnectDevice',
     'uses' => 'DeviceController@connect'
 ));
+
+Route::post('disconnect',array(
+    'as' => 'DisconnectDevice',
+    'uses' => 'DeviceController@disconnect'
+));
