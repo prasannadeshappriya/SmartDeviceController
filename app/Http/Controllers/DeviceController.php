@@ -24,6 +24,36 @@ class DeviceController extends Controller
         return $response->setData(['serial'=>$serial,'status'=>$request['status']]);
     }
 
+    public function readData(Request $request){
+        $serial = $request['serial'];
+        $response = new JsonResponse();
+        $result_arr = [];
+        $result = DB::select("SELECT serial FROM device where 1");
+        foreach ($result as $row){
+            $result_arr[] = (array) $row;
+        }
+        if(empty($result_arr)){
+            return $response->setData([
+                'error' => 'No Devices Are Connected!'
+            ]);
+        }else{
+            if($serial===$result_arr[0]['serial']){
+                $data_arr = [];
+                $data_result = DB::select("SELECT array FROM buffer where 1");
+                foreach ($data_result as $row){
+                    $data_arr[] = (array) $row;
+                }
+                return $response->setData([
+                    'data' => $data_arr[0]['array']
+                ]);
+            }else{
+                return $response->setData([
+                    'error' => 'Invalid Serial Number'
+                ]);
+            }
+        }
+    }
+
     public function disconnect(Request $request){
         //Delete the current device serial
         $sql = "DELETE FROM device WHERE 1";

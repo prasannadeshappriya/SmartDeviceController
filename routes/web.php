@@ -30,3 +30,8 @@ Route::post('disconnect',array(
     'as' => 'DisconnectDevice',
     'uses' => 'DeviceController@disconnect'
 ));
+
+Route::post('read_data',array(
+    'as' => 'ReadDataFromServer',
+    'uses' => 'DeviceController@readData'
+));

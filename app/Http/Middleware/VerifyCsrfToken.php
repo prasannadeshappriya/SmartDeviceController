@@ -14,6 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         'buffer',
         'connect',
-        'disconnect'
+        'disconnect',
+        'read_data'
     ];
 }
