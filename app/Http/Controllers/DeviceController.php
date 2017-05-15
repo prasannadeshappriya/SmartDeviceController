@@ -24,6 +24,12 @@ class DeviceController extends Controller
         return $response->setData(['serial'=>$serial,'status'=>$request['status']]);
     }
 
+    public function storeData(Request $request){
+        $sql = "UPDATE buffer SET array=?";
+        DB::insert($sql,[$request['data']]);
+
+    }
+
     public function readData(Request $request){
         $serial = $request['serial'];
         $response = new JsonResponse();

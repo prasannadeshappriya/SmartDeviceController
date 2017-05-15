@@ -35,3 +35,8 @@ Route::post('read_data',array(
     'as' => 'ReadDataFromServer',
     'uses' => 'DeviceController@readData'
 ));
+
+Route::post('store',array(
+    'as'=>'StoreDataFromTheDevice',
+    'uses'=>'DeviceController@storeData'
+));

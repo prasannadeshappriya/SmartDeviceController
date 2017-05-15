@@ -15,6 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         'buffer',
         'connect',
         'disconnect',
-        'read_data'
+        'read_data','store'
     ];
 }
